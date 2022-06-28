@@ -1,0 +1,19 @@
+{
+  "name": "@judeatmerit/testing-whateva",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/judeatmerit/testing-whateva.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/judeatmerit/testing-whateva/issues"
+  },
+  "homepage": "https://github.com/judeatmerit/testing-whateva#readme"
+}
