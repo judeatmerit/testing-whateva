@@ -15,5 +15,6 @@
   "bugs": {
     "url": "https://github.com/judeatmerit/testing-whateva/issues"
   },
-  "homepage": "https://github.com/judeatmerit/testing-whateva#readme"
+  "homepage": "https://github.com/judeatmerit/testing-whateva#readme",
+  "type": "module"
 }
