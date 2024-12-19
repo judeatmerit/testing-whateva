@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+
+name: Jude Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      some_string:
+        type: string
+        default: default value goes here
+        description: Provide a string value here, otherwise defaults to something
+      select:
+        type: choice
+        description: Selection thingy
+        options:
+          - uno
+          - dos
+          - tres
+          - 1
+          - 2
+      some_number:
+        type: number
+        description: Put in a number here
+      some_boolean:
+        type: boolean
+        description: You know what this is
+      asdfas:
+        type: environment
+        description: What is an environment?
+
+jobs:
+  display-inputs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display inputs
+        run: echo "${{ toJSON(inputs) }}"
