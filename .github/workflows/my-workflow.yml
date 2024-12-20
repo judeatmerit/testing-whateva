@@ -21,12 +21,11 @@ on:
       some_number:
         type: number
         description: Put in a number here
+        default: but the placeholder can be not a number
+        required: true
       some_boolean:
         type: boolean
         description: You know what this is
-      asdfas:
-        type: environment
-        description: What is an environment?
 
 jobs:
   display-inputs:
@@ -34,3 +33,20 @@ jobs:
     steps:
       - name: Display inputs
         run: echo "${{ toJSON(inputs) }}"
+      - name: Config vars
+        id: config-vars
+        run: |
+          case "${{ inputs.select }}" in
+            uno)
+              THE_VAR=one
+              ;;
+            dos)
+              THE_VAR=two
+              ;;
+            tres)
+              THE_VAR=three
+              ;;
+          esac
+
+          echo "the_var=${THE_VAR}" >> ${GITHUB_OUTPUT}
+
