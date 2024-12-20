@@ -61,6 +61,8 @@ jobs:
     steps:
       - name: Use var from another job
         id: use-var-from-another
+        env:
+          OUTSIDE_VAR: ${{ needs.jobs.the-first-job.outputs.var-for-outside }}
         run: |
-          echo "The value from outside is: ${{ needs.jobs.the-first-job.outputs.var-for-outside }}"
+          echo "The value from outside is: ${OUTSIDE_VAR}"
 
