@@ -49,4 +49,8 @@ jobs:
           esac
 
           echo "the_var=${THE_VAR}" >> ${GITHUB_OUTPUT}
+      - name: Use Variable
+        id: use-variable
+        run: |
+          echo "The variable value is: ${{steps.config-vars.outputs.the_var}}"
 
