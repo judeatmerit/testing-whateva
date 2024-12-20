@@ -28,8 +28,10 @@ on:
         description: You know what this is
 
 jobs:
-  display-inputs:
+  the-first-job:
     runs-on: ubuntu-latest
+    outputs:
+      var-for-outside: ${{ steps.config-vars.outputs.the_var }}
     steps:
       - name: Display inputs
         run: echo "${{ toJSON(inputs) }}"
@@ -49,8 +51,15 @@ jobs:
           esac
 
           echo "the_var=${THE_VAR}" >> ${GITHUB_OUTPUT}
-      - name: Use Variable
+      - name: Use Variable Within Job
         id: use-variable
         run: |
           echo "The variable value is: ${{steps.config-vars.outputs.the_var}}"
+  the-second-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use var from another job
+        id: use-var-from-another
+        run: |
+          echo "The value from outside is: ${{ needs.jobs.the-first-job.outputs.the_var }}"
 
